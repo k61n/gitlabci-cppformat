@@ -17,7 +17,7 @@ project_root = os.path.dirname(os.path.dirname(file))
 
 
 def parse_clangtidy_output(filename):
-    cmd = f'clang-tidy -p {os.path.join(project_root, "build")} {filename}'
+    cmd = f'clang-tidy -p {os.path.join(project_root, "build")} {filename} -extra-arg=-std=c++14'
     output = subprocess.check_output(cmd, shell=True, text=True)
     errors = []
     for line in output.split('\n'):
