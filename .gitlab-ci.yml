@@ -1,0 +1,18 @@
+stages:
+  - .pre
+
+ubuntu-jammy-sast:
+  stage: .pre
+  image: [url to image]
+  script:
+    - mkdir build && cd build
+    - cmake .. -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+    - source /root/venv-cppformat/bin/activate
+    - python3 ../scripts/sast.py
+
+ubuntu-jammy-format:
+  stage: .pre
+  image: [url to image]
+  script:
+    - source /root/venv-cppformat/bin/activate
+    - python3 scripts/clang_format.py
