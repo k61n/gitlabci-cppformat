@@ -1,4 +1,3 @@
-# Version 0.0.2
 FROM --platform=linux/amd64 ubuntu:jammy
 
 WORKDIR /root
